@@ -6,7 +6,7 @@ const useLocalStorage = (
   sessionOnly: boolean = false
 ) => {
   const storage = sessionOnly ? sessionStorage : localStorage;
-  const getStorageValue = computed(() => () => {
+  const { value: getStorageValue } = computed(() => () => {
     try {
       const storageItem = storage.getItem(key);
       return JSON.parse(storageItem!) ?? initialValue;
@@ -16,7 +16,7 @@ const useLocalStorage = (
     }
   });
 
-  const storageValue = ref(getStorageValue.value());
+  const storageValue = ref(getStorageValue());
 
   const setStorageValue = (newValue: any) => {
     if (typeof newValue === "function") newValue = newValue(storageValue);
@@ -26,7 +26,7 @@ const useLocalStorage = (
 
   watchEffect((cleanup) => {
     const handleStorage = (event: StorageEvent) => {
-      if (event.key === key) storageValue.value = getStorageValue.value();
+      if (event.key === key) storageValue.value = getStorageValue();
     };
 
     window.addEventListener("storage", handleStorage);
