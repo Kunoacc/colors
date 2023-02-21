@@ -3,7 +3,7 @@ import Default from "@/layouts/Default.vue";
 </script>
 
 <template>
-  <main class="cark">
+  <main>
     <Default>
       <div>Hello</div>
     </Default>
