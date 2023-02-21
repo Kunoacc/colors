@@ -8,7 +8,7 @@ import { ref, watchEffect, provide, watch, type Ref } from "vue";
 import { themeInjectionKey } from "./injectionKeys";
 
 const LIGHT_THEME = "light";
-const DARK_THEME = "dark;";
+const DARK_THEME = "dark";
 
 const themeQuery = matchMedia("(prefers-color-scheme: dark)");
 const systemTheme = ref(themeQuery.matches ? DARK_THEME : LIGHT_THEME);
@@ -25,7 +25,7 @@ const setTheme = (newTheme: string) => {
 
 watchEffect((cleanUp) => {
   const handleMediaQueryUpdate = (event: MediaQueryListEvent) => {
-    setLocalTheme(event.matches ? DARK_THEME : LIGHT_THEME);
+    setTheme(event.matches ? DARK_THEME : LIGHT_THEME);
   };
 
   themeQuery.addEventListener("change", handleMediaQueryUpdate);
