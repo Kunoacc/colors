@@ -28,13 +28,16 @@
 </template>
 
 <script lang="ts" setup>
-import { themeInjectionKey } from "@/providers/injectionKeys";
+import {
+  themeInjectionKey,
+  type ThemeProvider,
+} from "@/providers/injectionKeys";
 import { inject } from "vue";
 import { MoonIcon, SunIcon } from "@heroicons/vue/20/solid";
 import AppLogo from "./AppLogo.vue";
 import Switch from "./Switch.vue";
 
-const { setTheme, theme } = inject(themeInjectionKey, {});
+const { setTheme, theme } = inject(themeInjectionKey) as ThemeProvider;
 
 const toggleTheme = (event: any) => {
   setTheme(event?.currentTarget?.checked ? "dark" : "light");

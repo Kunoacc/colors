@@ -16,11 +16,14 @@
 </template>
 
 <script lang="ts" setup>
-import { colorInjectionKey } from "@/providers/injectionKeys";
+import {
+  colorInjectionKey,
+  type ColorProvider,
+} from "@/providers/injectionKeys";
 import colorAnalyzer from "@/utils/colorAnalyzer";
 import { inject } from "vue";
 
 // @ts-ignore
-const { colors, activeColor } = inject(colorInjectionKey, {});
+const { colors, activeColor } = inject(colorInjectionKey) as ColorProvider;
 const analyzedColor = colorAnalyzer(colors.value[activeColor.value] as any);
 </script>

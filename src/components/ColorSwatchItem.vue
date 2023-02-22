@@ -20,7 +20,10 @@
 
 <script lang="ts" setup>
 import type { Color } from "@/providers/ColorProvider.vue";
-import { colorInjectionKey } from "@/providers/injectionKeys";
+import {
+  colorInjectionKey,
+  type ColorProvider,
+} from "@/providers/injectionKeys";
 import { colord } from "colord";
 import { computed, inject, type Ref } from "vue";
 import { XMarkIcon, PlusCircleIcon } from "@heroicons/vue/24/outline";
@@ -31,9 +34,8 @@ const props = defineProps<{
 }>();
 // @ts-ignore
 const { activeColor, setColors, getPreviousColor } = inject(
-  colorInjectionKey,
-  {}
-);
+  colorInjectionKey
+) as ColorProvider;
 const isActiveColor = computed(() => props.index === activeColor.value);
 const canClear = computed(
   () => props.color && !!props.index && isActiveColor.value

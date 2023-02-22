@@ -10,10 +10,13 @@
 </template>
 
 <script lang="ts" setup>
-import { colorInjectionKey } from "@/providers/injectionKeys";
+import {
+  colorInjectionKey,
+  type ColorProvider,
+} from "@/providers/injectionKeys";
 import { inject } from "vue";
 import ColorSwatchItem from "./ColorSwatchItem.vue";
 
 // @ts-ignore
-const { colors } = inject(colorInjectionKey, {});
+const { colors } = inject(colorInjectionKey) as ColorProvider;
 </script>

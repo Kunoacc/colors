@@ -13,13 +13,16 @@
 </template>
 
 <script lang="ts" setup>
-import { colorInjectionKey } from "@/providers/injectionKeys";
+import {
+  colorInjectionKey,
+  type ColorProvider,
+} from "@/providers/injectionKeys";
 import colorConverter from "@/utils/colorConverter";
 import { inject, ref, computed } from "vue";
 import ColorBreakdownInput from "./ColorBreakdownInput.vue";
 
 // @ts-ignore
-const { activeColor, colors } = inject(colorInjectionKey, {});
+const { activeColor, colors } = inject(colorInjectionKey) as ColorProvider;
 
 const convertedColor = computed(() =>
   colorConverter(colors.value[activeColor.value] as any)
