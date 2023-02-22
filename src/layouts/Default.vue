@@ -3,7 +3,7 @@
     <div class="container m-5 max-w-[50rem]">
       <AppHeader></AppHeader>
       <main
-        class="flex flex-col flex-wrap my-8 mx-0 shadow-gray-500/25 shadow-lg rounded-2xl"
+        class="flex flex-col flex-wrap my-8 mx-0 shadow-gray-400/25 shadow-lg rounded-2xl"
       >
         <slot></slot>
       </main>

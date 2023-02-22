@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="grid grid-cols-8 gap-y-4 p-6 justify-between border-t-4 border-t-gray-200"
-  >
+  <div class="flex p-6 justify-between border-t-4 border-t-gray-200">
     <ColorSwatchItem
       :color="color"
       :key="index"
