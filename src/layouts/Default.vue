@@ -2,7 +2,11 @@
   <div class="min-h-screen items-center justify-center flex">
     <div class="container m-5 max-w-[50rem]">
       <AppHeader></AppHeader>
-      <slot></slot>
+      <main
+        class="flex flex-col flex-wrap my-8 mx-0 shadow-gray-500/25 shadow-lg rounded-2xl"
+      >
+        <slot></slot>
+      </main>
       <AppFooter></AppFooter>
     </div>
   </div>

@@ -5,10 +5,8 @@ import ColorSwatch from "@/components/ColorSwatch.vue";
 </script>
 
 <template>
-  <main>
-    <Default>
-      <ColorBreakdown></ColorBreakdown>
-      <ColorSwatch></ColorSwatch>
-    </Default>
-  </main>
+  <Default>
+    <ColorBreakdown></ColorBreakdown>
+    <ColorSwatch></ColorSwatch>
+  </Default>
 </template>
