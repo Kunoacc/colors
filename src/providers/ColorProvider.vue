@@ -12,10 +12,11 @@ import { colorInjectionKey } from "./injectionKeys";
 const activeColor = ref(0);
 
 // @ts-ignore
-const [colors, setColors]: [Ref<any>, (value: any) => void] = useLocalStorage(
-  "colors",
-  [{ r: 50, g: 85, b: 255, a: 1 }, ...Array(13).fill(null)]
-);
+const [colors, setColors]: [Ref<Array<Color>>, (value: any) => void] =
+  useLocalStorage("colors", [
+    { r: 50, g: 85, b: 255, a: 1 },
+    ...Array(13).fill(null),
+  ]);
 
 const { value: getPreviousColor } = computed(() => () => {
   for (let i = activeColor.value - 1; i >= 0; i--) {

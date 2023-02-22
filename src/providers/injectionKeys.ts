@@ -1,10 +1,11 @@
 import type { InjectionKey, Ref } from "vue";
+import type { Color } from "./ColorProvider.vue";
 
 type ColorProvider = {
-  colors: Ref<[]>;
+  colors: Ref<Array<Color>>;
   setColors: (value: any) => void;
   activeColor: Ref<number>;
-  getPreviousColor: () => number;
+  getPreviousColor: () => number | undefined;
 };
 
 type ThemeProvider = {
